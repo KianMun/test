@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Spring Validation Workshop</title>
+</head>
+<body>
+  <h3>Create New Customer</h3>
+  <form th:action="@{/customer/create}" method="post"
+      th:object="${customer}">
+    <table>
+      <tbody>
+        <tr>
+          <td>Name:</td>
+          <td>
+            <input type="text" th:field="*{name}" />
+            <span th:if="${#fields.hasErrors('name')}" 
+            th:errors="*{name}">
+          </td>
+        </tr>
+        <tr>
+          <td>Email:</td>
+          <td>
+            <input type="text" th:field="*{email}" />
+            <span th:if="${#fields.hasErrors('email')}" 
+            th:errors="*{email}">
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input type="text" th:field="*{gender}" />
+            <span th:if="${#fields.hasErrors('gender')}" 
+            th:errors="*{gender}">
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+          <td colspan="3">Credit Card</td>
+        </tr>
+        <tr>
+          <td>Number:</td>
+          <td>
+            <input type="text" th:field="*{creditCardNumber}" />
+            <span th:if="${#fields.hasErrors('creditCardNumber')}" 
+            th:errors="*{creditCardNumber}">
+          </td>
+        </tr>
+        <tr>
+          <td>Expiration:</td>
+          <td>
+            <input type="text" th:field="*{creditCardExpiration}" />
+            <span th:if="${#fields.hasErrors('creditCardExpiration')}" 
+            th:errors="*{creditCardExpiration}">
+          </td>
+        </tr>
+        <tr>
+          <td>CVV:</td>
+          <td>
+            <input type="text" th:field="*{creditCardCVV}" />
+            <span th:if="${#fields.hasErrors('creditCardCVV')}" 
+            th:errors="*{creditCardCVV}">
+          </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        
+        <tr>
+          <td></td>
+          <td><input type="submit" value="Create" /></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+<body>
+</html>
